@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
-
+import Questions from './Questions'
+import {useGeneralContext} from './context'
 function App() {
+  const {getQuestions} = useGeneralContext()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="container">
+        <h3>Questions and Answers about login</h3>
+
+        <section className="info">
+          {getQuestions.map((question) => {
+            return <Questions {...question} key={question.id} />;
+          })}
+        </section>
+      </div>
+    </main>
   );
 }
 
