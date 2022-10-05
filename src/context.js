@@ -6,14 +6,11 @@ const AppContext = React.createContext()
 const AppProvider = ({children})=>{
     const [getQuestions, setGetQuestions] = useState(questions)
     const [toggle, setToggle] = useState(false)
-    const [btn,setBtn] = useState(false)
-    const showtoggle = ()=>{
-
-    }
+    const [clicked, setClicked] = useState(false)
     return(
         <AppContext.Provider
             value={{
-                getQuestions, setGetQuestions, toggle,setToggle, btn
+                getQuestions, setGetQuestions, toggle,setToggle
             }}
         >
             {children}
